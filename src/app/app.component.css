@@ -19,3 +19,27 @@ mat-toolbar {
 mat-sidenav-container {
   grid-area: page-container
 }
+
+mat-sidenav-content {
+  padding: 16px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 280px);
+}
+
+mat-card {
+  width: 232px;
+}
+
+[mat-card-image] {
+  height: 330px;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+dd {
+  margin-inline-start: 0;
+}
