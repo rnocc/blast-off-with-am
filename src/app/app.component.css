@@ -1,0 +1,21 @@
+:host {
+  height: 100vh;
+  display: grid;
+  grid-template: "toolbar"
+                 "page-container" 1fr;
+}
+
+h1 {
+  grid-area: title;
+}
+
+mat-toolbar {
+  grid-area: toolbar;
+  display: grid;
+  grid-template:  "title menu" auto
+  / 1fr 50px;
+}
+
+mat-sidenav-container {
+  grid-area: page-container
+}
