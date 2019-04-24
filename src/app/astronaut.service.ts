@@ -1,31 +1,42 @@
-import { astronauts } from './astronauts';
 import { Injectable } from '@angular/core';
-import { FilterState, Filter, Option } from './types';
+import { HttpClient } from '@angular/common/http';
+import { FilterState, Filter, Option, Astronaut } from './types';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs';
+import { tap, map, share } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AstronautService {
-  astronauts = astronauts;
+  astronauts: Observable<Astronaut[]>;
   filterState: FilterState = {};
-  filters: Filter[];
+  filters: Observable<Filter[]>;
 
-  constructor() {
-    this.filters = [{
+  constructor(http: HttpClient) {
+    this.astronauts = http.get<Astronaut[]>('assets/astronauts.json').pipe(
+      share()
+    );
+    this.filters = this.astronauts.pipe(
+      map(astronauts => this.createFilters(astronauts))
+    );
+  }
+
+  private createFilters( astronauts: Astronaut[]) {
+    return [{
       category: 'spaceWalks',
       displayName: 'Space walks',
-      options: this.extractFilterOptions('spaceWalks')
+      options: this.extractFilterOptions('spaceWalks', astronauts)
     }, {
       category: 'undergraduateMajor',
       displayName: 'Undergraduate major',
-      options: this.extractFilterOptions('undergraduateMajor')
+      options: this.extractFilterOptions('undergraduateMajor', astronauts)
     }];
   }
 
-  extractFilterOptions(category: string): Option[] {
+  private extractFilterOptions(category: string, astronauts: Astronaut[]): Option[] {
     this.filterState[category] = '';
-    return _.chain(this.astronauts)
+    return _.chain(astronauts)
       .groupBy(category)
       .keys()
       .sort()

@@ -27,8 +27,6 @@ export interface Filter {
   options: Option[];
 }
 
-export interface FilterState {
-  [key: string]: Option;
-}
+export type FilterState = Record<string, Option>;
 
 export type Option = string | number;
