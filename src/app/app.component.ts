@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AstronautService } from './astronaut.service';
 import { Observable } from 'rxjs';
 import { Astronaut, FilterState, Filter, Option } from './types';
+import { MatDialog } from '@angular/material/dialog';
+import { AddAstronautComponent } from './add-astronaut/add-astronaut.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ export class AppComponent {
   filterState: FilterState;
   filters: Observable<Filter[]>;
 
-  constructor(astronautService: AstronautService) {
+  constructor(astronautService: AstronautService, private dialog: MatDialog) {
     this.astronauts = astronautService.astronauts;
     this.filterState = astronautService.filterState;
     this.filters = astronautService.filters;
@@ -21,5 +23,12 @@ export class AppComponent {
 
   changeFilter(category: string, option: Option) {
     this.filterState[category] = option;
+  }
+
+  addAstronaut() {
+    this.dialog.open(AddAstronautComponent, {
+      width: '500px',
+      ariaLabel: 'Add an astronaut'
+    });
   }
 }

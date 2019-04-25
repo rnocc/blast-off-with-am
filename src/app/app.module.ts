@@ -12,13 +12,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddAstronautComponent } from './add-astronaut/add-astronaut.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddAstronautComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +37,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatChipsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // Don't forget to list AddAstronautComponent as an entry component!
+  // This is needed because it is added to the DOM programmatically--
+  // it doesn't appear in the template of any other component
+  entryComponents: [AddAstronautComponent]
 })
 export class AppModule { }
