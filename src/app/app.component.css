@@ -43,3 +43,24 @@ dl {
 dd {
   margin-inline-start: 0;
 }
+
+mat-sidenav {
+  width: 310px;
+}
+
+.search {
+  padding: 16px;
+}
+
+.list-button {
+  width: 100%;
+  text-align: left;
+}
+
+mat-chip.mat-chip {
+  margin: 0 16px 16px;
+}
+
+::ng-deep .mat-chip-list-wrapper {
+  margin: 0 !important;
+}

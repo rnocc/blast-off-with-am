@@ -2,7 +2,25 @@
   <h1>Astronaut Directory</h1>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav mode="side" opened role="region">Sidenav content</mat-sidenav>
+  <mat-sidenav mode="side" opened role="region">
+    <mat-form-field class="search">
+      <input matInput placeholder="Search astronauts">
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <ng-container *ngFor="let filter of filters | async; last as last">
+      <mat-list>
+        <h3 matSubheader>{{ filter.displayName }}</h3>
+
+        <mat-list-item *ngFor="let val of filter.options">
+          <button mat-button class="list-button" (click)="changeFilter(filter.category, val)">
+            {{ val }}
+          </button>
+        </mat-list-item>
+
+      </mat-list>
+      <mat-divider *ngIf="!last"></mat-divider>
+    </ng-container>
+  </mat-sidenav>
   <mat-sidenav-content role="region">
     <mat-card *ngFor="let astronaut of astronauts | async">
       <mat-card-title>{{astronaut.name}}</mat-card-title>
