@@ -64,3 +64,11 @@ mat-chip.mat-chip {
 ::ng-deep .mat-chip-list-wrapper {
   margin: 0 !important;
 }
+
+.menu-button {
+  grid-area: menu;
+}
+
+mat-menu {
+  display: none
+}

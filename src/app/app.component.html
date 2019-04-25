@@ -1,5 +1,11 @@
 <mat-toolbar color="primary">
   <h1>Astronaut Directory</h1>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item class="menu-button">Log out</button>
+  </mat-menu>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav mode="side" opened role="region">
