@@ -11,12 +11,24 @@
       <mat-list>
         <h3 matSubheader>{{ filter.displayName }}</h3>
 
-        <mat-list-item *ngFor="let val of filter.options">
-          <button mat-button class="list-button" (click)="changeFilter(filter.category, val)">
-            {{ val }}
-          </button>
-        </mat-list-item>
+        <ng-container *ngIf="filterState[filter.category] === ''; else chip">
+          <mat-list-item *ngFor="let val of filter.options">
+            <button mat-button class="list-button" (click)="changeFilter(filter.category, val)">
+              {{ val }}
+            </button>
+          </mat-list-item>
+        </ng-container>
 
+        <ng-template #chip>
+          <mat-chip-list>
+            <ng-container *ngFor="let val of filter.options">
+              <mat-chip *ngIf="filterState[filter.category] === val" (removed)="changeFilter(filter.category, '')">
+                {{val}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+            </ng-container>
+          </mat-chip-list>
+        </ng-template>
       </mat-list>
       <mat-divider *ngIf="!last"></mat-divider>
     </ng-container>
