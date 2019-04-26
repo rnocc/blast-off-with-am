@@ -6,27 +6,92 @@
 * [Step 6](./step_6.md)
 * **Step 7 <-**
 
-### [Step 7 setup demo]()
-### [Step 7 completed demo]()
+### [Step 7 setup demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-6)
+### [Step 7 completed demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-7)
 
 ## Step 7
 
-In this step, you will give the user the ability to view the astronaut information as a table rather than cards
+In this step, you will add a floating action button (FAB) that will open a dialog to add a new astronaut
 
-<details><summary>Add a toolbar to the <code>mat-sidenav-content</code></summary>
+<details><summary>7a) Add a fab to the bottom right of the page</summary>
+
+`app.component.html`
 
 ```html
 <mat-sidenav-content>
-  <mat-toolbar>
-    <button mat-raised-button [color]="viewTable ? 'primary' : 'default'" (click)="viewTable = !viewTable">
-      <mat-icon>grid_on</mat-icon>
-      Table view
-    </button>
-    <button mat-raised-button [color]="!viewTable ? 'primary' : 'default'" (click)="viewTable = !viewTable">
-      <mat-icon>view_list</mat-icon>
-      Card view
-    </button>
-  </mat-toolbar>
 ...
 </mat-sidenav-content>
+<button mat-fab aria-label="Add an astronaut"><mat-icon>add</mat-icon></button>
 ```
+`app.component.css`
+
+```css
+[mat-fab] {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 10;
+}
+```
+</details>
+
+<details><summary>7b) Generate a new component called <code>AddAstronautComponent</code> and add the <code>MatDialogModule</code> to the app</summary>
+
+```ts
+import { MatDialogModule } from '@angular/material/dialog';
+
+@NgModule({
+  ...
+  imports: [
+    ...
+    MatDialogModule
+  ],
+  ...
+})
+```
+</details>
+
+<details><summary>7b) Add the <code>AddAstronautComponent</code> to the <code>entryComponents</code> property of the module. This is needed because this component is added programmatically rather than being part of another component's template.</summary>
+
+```ts
+@NgModule({
+  ...
+  entryComponents: [AddAstronautComponent]
+  ...
+})
+```
+</details>
+
+<details><summary>7b) Add a click event to the FAB and call a method on the component to open the dialog
+</summary>
+
+`app.component.html`
+```html
+<button mat-fab (click)="addAstronaut()"><mat-icon>add</mat-icon></button>
+```
+`app.component.ts`
+```ts
+import { MatDialog } from '@angular/material/dialog';
+import { AddAstronautComponent } from './add-astronaut/add-astronaut.component';
+
+constructor(astronautService: AstronautService, private dialog: MatDialog) {
+
+addAstronaut() {
+  this.dialog.open(AddAstronautComponent, {
+    width: '500px',
+    ariaLabel: 'Add an astronaut'
+  });
+}
+```
+</details>
+
+<details><summary>Inject <code>MatDialogRef&lt;AddAstronautComponent&gt;</code> into <code>AddAstronautComponent</code> and the following method to allow the dialog to close when the user clicks away</summary>
+
+```ts
+  constructor(private dialogRef: MatDialogRef<AddAstronautComponent>) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+```
+</details>
