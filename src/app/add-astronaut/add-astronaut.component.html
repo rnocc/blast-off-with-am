@@ -1,3 +1,35 @@
-<p>
-  add-astronaut works!
-</p>
+<h2>Add astronaut</h2>
+<form [formGroup]="astronaut" (ngSubmit)="saveAstronaut()">
+  <mat-form-field>
+    <input matInput required placeholder="First name" type="text" formControlName="firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput required placeholder="Last name" type="text" formControlName="lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <input maxLength="1" matInput placeholder="Middle initial" type="text" formControlName="middleInitial">
+  </mat-form-field>
+  <mat-radio-group formControlName="active">
+    <mat-radio-button [value]="true" name="active">
+      Active
+    </mat-radio-button>
+    <mat-radio-button [value]="false" name="active">
+      Inactive
+    </mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field>
+    <input matInput required [matDatepicker]="picker" placeholder="Birthdate" formControlName="birthdate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Undergraduate major</mat-label>
+    <select matNativeControl required formControlName="undergraduateMajor">
+      <option *ngFor="let major of (undergraduateMajors | async)" [value]="major">
+        {{ major }}
+      </option>
+    </select>
+  </mat-form-field>
+  <button mat-raised-button [disabled]="!astronaut.valid" [class.disabled]="!astronaut.valid">Save</button>
+  <button mat-button type="button" (click)="close()">Cancel</button>
+</form>
