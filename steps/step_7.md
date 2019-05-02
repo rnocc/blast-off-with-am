@@ -6,8 +6,8 @@
 * [Step 6](./step_6.md)
 * **Step 7 <-**
 
-### [Step 8 setup demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-6)
-### [Step 8 completed demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-7)
+### [Step 7 setup demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-6)
+### [Step 7 completed demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-7)
 
 ## Step 7
 
