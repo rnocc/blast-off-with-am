@@ -6,9 +6,10 @@
 * [Step 6](./step_6.md)
 * [Step 7](./step_7.md)
 
-### <a href="https://stackblitz.com/github/rnocc/blast-off-with-am/tree/final" target="_blank">Full Demo</a>
-### <a href="https://stackblitz.com/github/rnocc/blast-off-with-am/tree/start" target="_blank">Open this StackBlitz to get started</a>
-### <a href="https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-7" target="_blank">Step 1 completed demo</a>
+### [Full Demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/final)
+
+### [Open this StackBlitz to get started](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/start)
+### [Step 1 completed demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-1)
 
 ## Step 1
 

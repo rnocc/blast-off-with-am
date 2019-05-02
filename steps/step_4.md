@@ -6,8 +6,8 @@
 * [Step 6](./step_6.md)
 * [Step 7](./step_7.md)
 
-### <a href="https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-3" target="_blank">Step 4 setup demo</a>
-### <a href="https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-4" target="_blank">Step 4 completed demo</a>
+### [Step 4 setup demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-3)
+### [Step 4 completed demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-4)
 
 ## Step 4
 
