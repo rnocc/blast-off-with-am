@@ -8,7 +8,7 @@
 * **Step 8 <-**
 
 ### [Step 8 setup demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-7)
-### [Step 8 completed demo](https://stackblitz.com/github/rnocc/blast-off-with-am/tree/step-8)
+### **To view the completed demo,** run the master branch locally (to avoid an error on StackBlitz)
 
 ## Step 8
 
