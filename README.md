@@ -14,4 +14,4 @@ In this workshop, we will use Angular Material to create a faceted search for th
 * [Step 5](./steps/step_5.md)
 * [Step 6](./steps/step_6.md)
 * [Step 7](./steps/step_7.md)
-* [Step 8](./steps/step_8.md)
+* [Step 8](./steps/step_8.md) (bonus! run locally to view demo) 
