@@ -11,6 +11,7 @@ import { AddAstronautComponent } from './add-astronaut/add-astronaut.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'blast-off-with-am';
   astronauts: Observable<Astronaut[]>;
   filterState: FilterState;
   filters: Observable<Filter[]>;
